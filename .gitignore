@@ -1,0 +1,16 @@
+# Node
+node_modules/
+frontend/dist/
+frontend/.vite/
+npm-debug.log*
+yarn-error.log*
+
+# Local env overrides
+.env
+.env.local
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

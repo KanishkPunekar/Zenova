@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./.venv/Scripts/python.exe -c ' *)",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --hide-scrollbars --remote-debugging-port=9222 --user-data-dir=\"C:/Users/KANI/AppData/Local/Temp/claude/d--Zenova/04a4e06a-e90e-4d42-84da-b96f673f6a97/scratchpad/chrome-profile2\" \"about:blank\")",
+      "Bash(node offline-test.mjs)",
+      "Bash(cmd //c \"npm.cmd run lint\")",
+      "Bash(cmd //c \"npm.cmd run dev\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --hide-scrollbars --remote-debugging-port=9222 --user-data-dir=\"C:/Users/KANI/AppData/Local/Temp/claude/d--Zenova/04a4e06a-e90e-4d42-84da-b96f673f6a97/scratchpad/cp3\" \"about:blank\")",
+      "Bash(VIEWPORT_ONLY=1 node shot.mjs \"http://localhost:5173/contact?product=Block%20Jointing%20Mortar\" shots/c-unconfigured.png 1440 1250 false)",
+      "Bash(python -c ' *)",
+      "Bash(VIEWPORT_ONLY=1 node shot.mjs \"http://localhost:5173/contact\" shots/c-configured.png 1440 1300 false)",
+      "Bash(VIEWPORT_ONLY=1 node shot.mjs \"http://localhost:5173/contact\" shots/c-configured-m.png 390 900 true)"
+    ]
+  }
+}
