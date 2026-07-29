@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 
+import FloatingContact from "./FloatingContact";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import ScrollManager from "./ScrollManager";
@@ -19,6 +20,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <FloatingContact />
     </div>
   );
 }

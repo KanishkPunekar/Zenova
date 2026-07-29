@@ -1,4 +1,5 @@
 import CTABand from "../components/CTABand";
+import DealerCTA from "../components/DealerCTA";
 import Icon from "../components/Icon";
 import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
@@ -136,8 +137,10 @@ export default function Network() {
         </div>
       </section>
 
+      <DealerCTA />
+
       {/* Locations */}
-      <section className="py-20">
+      <section className="border-t border-ink-100 py-20">
         <div className="container-page">
           <Reveal>
             <SectionHeading

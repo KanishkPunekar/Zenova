@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 
 import CTABand from "../components/CTABand";
+import FAQ from "../components/FAQ";
 import Icon from "../components/Icon";
 import PageHero from "../components/PageHero";
 import ProductCard from "../components/ProductCard";
@@ -129,6 +130,8 @@ export default function Products() {
           </Reveal>
         </div>
       </section>
+
+      <FAQ />
 
       <CTABand />
     </>

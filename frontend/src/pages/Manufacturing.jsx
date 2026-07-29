@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import CTABand from "../components/CTABand";
 import Icon from "../components/Icon";
 import PageHero from "../components/PageHero";
+import QualitySection from "../components/QualitySection";
 import Reveal from "../components/Reveal";
 import SectionHeading from "../components/SectionHeading";
 import StatStrip from "../components/StatStrip";
@@ -153,6 +154,8 @@ export default function Manufacturing() {
           </ol>
         </div>
       </section>
+
+      <QualitySection />
 
       {/* Expansion */}
       <section className="py-20">

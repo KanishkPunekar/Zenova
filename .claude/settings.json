@@ -10,7 +10,24 @@
       "Bash(VIEWPORT_ONLY=1 node shot.mjs \"http://localhost:5173/contact?product=Block%20Jointing%20Mortar\" shots/c-unconfigured.png 1440 1250 false)",
       "Bash(python -c ' *)",
       "Bash(VIEWPORT_ONLY=1 node shot.mjs \"http://localhost:5173/contact\" shots/c-configured.png 1440 1300 false)",
-      "Bash(VIEWPORT_ONLY=1 node shot.mjs \"http://localhost:5173/contact\" shots/c-configured-m.png 390 900 true)"
+      "Bash(VIEWPORT_ONLY=1 node shot.mjs \"http://localhost:5173/contact\" shots/c-configured-m.png 390 900 true)",
+      "WebFetch(domain:drychem.com)",
+      "WebSearch",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --hide-scrollbars --remote-debugging-port=9222 --user-data-dir=\"C:/Users/KANI/AppData/Local/Temp/claude/d--Zenova/04a4e06a-e90e-4d42-84da-b96f673f6a97/scratchpad/cp4\" \"about:blank\")",
+      "Bash(node probe.mjs \"http://localhost:5173/products/block-jointing-mortar\")",
+      "Bash(node scrollshot.mjs \"http://localhost:5173/products/block-jointing-mortar\" shots/pd 1440 1000 \"700,1500\")",
+      "Bash(node scrollshot.mjs \"http://localhost:5173/products\" shots/faq 1440 1000 \"4300\")",
+      "Bash(node scrollshot.mjs \"http://localhost:5173/manufacturing\" shots/qual 1440 1000 \"2100\")",
+      "Bash(node route-test.mjs)",
+      "Bash(MOBILE=1 node route-test.mjs)",
+      "Bash(node scrollshot.mjs \"http://localhost:5173/products/block-jointing-mortar\" shots/pd-tds 1440 1000 \"1100\")",
+      "Bash(python -m pip install --quiet python-docx)",
+      "Bash(python -c \"import docx; print\\('python-docx', docx.__version__ if hasattr\\(docx,'__version__'\\) else 'ready'\\)\")",
+      "Bash(python make_docx.py)",
+      "Bash(rm -f CLIENT-INFORMATION-REQUEST.md)",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --hide-scrollbars --remote-debugging-port=9222 --user-data-dir=\"C:/Users/KANI/AppData/Local/Temp/claude/d--Zenova/04a4e06a-e90e-4d42-84da-b96f673f6a97/scratchpad/cp5\" \"about:blank\")",
+      "Bash(node scrollshot.mjs \"http://localhost:5173/\" shots/cust 1440 1000 \"1550\")",
+      "Bash(MOBILE=1 node scrollshot.mjs \"http://localhost:5173/\" shots/cust-m 390 844 \"2450\")"
     ]
   }
 }

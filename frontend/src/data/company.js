@@ -239,6 +239,120 @@ export const contact = {
 };
 
 /**
+ * Customers we supply, as provided by the company.
+ *
+ * `logo` is optional. Leave it empty and the name is set in type, which keeps the
+ * wall looking deliberate rather than unfinished. To use a logo instead, drop the
+ * file into src/assets/customers/ and import it here — but only once you have
+ * written permission from that company, since these are registered trademarks.
+ */
+export const customers = [
+  { name: "UltraTech Cement Ltd", logo: "" },
+  { name: "Somany Ceramics Ltd", logo: "" },
+  { name: "Nuvoco Vistas Corp Ltd", logo: "" },
+  { name: "Hindware Limited", logo: "" },
+  { name: "JSW Green Cement Pvt Ltd", logo: "" },
+  { name: "Nippon Paint (India) Pvt Ltd", logo: "" },
+  { name: "Cera Sanitaryware Ltd", logo: "" },
+  { name: "Joint Seal", logo: "" },
+];
+
+/**
+ * Quality assurance — what we actually do, taken from the company profile.
+ * Certifications are deliberately NOT listed here: add them to `certifications`
+ * below only once they are held, with the real certificate numbers.
+ */
+export const qualityPractices = [
+  {
+    icon: "lab",
+    title: "In-house testing laboratory",
+    description:
+      "Our Karad unit has a fully equipped laboratory, so batches are checked before they are packed and dispatched.",
+  },
+  {
+    icon: "sand",
+    title: "Control of the raw material",
+    description:
+      "We wash, dry and grade our own silica sand, so the single biggest input to every product is under our control rather than a supplier's.",
+  },
+  {
+    icon: "drum",
+    title: "Separate grey and white lines",
+    description:
+      "White products run on their own dedicated blender, which keeps them free of grey contamination and holds their colour consistent.",
+  },
+  {
+    icon: "factory",
+    title: "Automated batching",
+    description:
+      "A fully automatic 4 MT blender mixes to the same recipe every time, removing the variation that comes with manual batching.",
+  },
+];
+
+/**
+ * Certifications and approvals. EMPTY ON PURPOSE — nothing is claimed on the
+ * company's behalf. Add entries only for certifications actually held, e.g.
+ *   { name: "ISO 9001:2015", detail: "Quality management system",
+ *     issuer: "Certificate no. XXXXX" }
+ * The Quality section renders this list only when it is non-empty.
+ */
+export const certifications = [];
+
+/** Common buyer questions. Answers only state things we can stand behind. */
+export const faqs = [
+  {
+    question: "Where do you deliver?",
+    answer:
+      "From Karad we regularly serve Satara, Sangli, Kolhapur, Pune, Nippani, Ratnagiri, Belgaum, Solapur, Mumbai, Goa, Vapi and Nagpur. Our Hubballi plant covers north Karnataka. Deliveries move on our own trucks, hyvas and bulkers. Tell us your site location and we will confirm.",
+  },
+  {
+    question: "What is the minimum order quantity?",
+    answer:
+      "It depends on the product and the delivery distance. Send us the quantity and site location through the enquiry form and we will confirm the minimum load and the rate for your area.",
+  },
+  {
+    question: "Can I get a technical data sheet before ordering?",
+    answer:
+      "Yes. Ask for it with your enquiry and we will send the current data sheet for the grade you need, including coverage, pot life and pack sizes. We issue the live sheet rather than publishing figures that may drift out of date.",
+  },
+  {
+    question: "Do you supply to dealers and distributors?",
+    answer:
+      "Yes. We are expanding our dealer network across Maharashtra, Karnataka and Goa. Get in touch with your firm name, the territory you cover and the products you want to stock.",
+  },
+  {
+    question: "Do you make products to a specific requirement?",
+    answer:
+      "Our liquid chemicals line at Karad runs site-specific formulations on request, and our powder plants can be scheduled for bulk project requirements. Share the specification and volume and we will tell you what is workable.",
+  },
+  {
+    question: "Which products are made where?",
+    answer:
+      "Grey products are blended on the fully automatic 4 MT line at Karad and white products on a dedicated 2 MT line at the same site. Liquid chemicals are produced at Karad, and our Hubballi plant has been running since May 2025.",
+  },
+];
+
+/**
+ * Social profiles. Any entry left blank is hidden, so the footer never shows a
+ * dead icon. Fill in the full profile URLs when the accounts exist.
+ */
+export const social = {
+  linkedin: "",
+  facebook: "",
+  instagram: "",
+  youtube: "",
+};
+
+/**
+ * Statutory details for the footer. Indian private limited companies normally
+ * print the CIN and GSTIN. Left blank until you supply the real numbers.
+ */
+export const legal = {
+  cin: "",
+  gstin: "",
+};
+
+/**
  * Google Form used to collect enquiries. See GOOGLE-FORM-SETUP.md for the
  * three-minute setup — there is a script there that builds the form for you.
  *

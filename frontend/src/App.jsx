@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Manufacturing from "./pages/Manufacturing";
 import Network from "./pages/Network";
 import NotFound from "./pages/NotFound";
+import ProductDetail from "./pages/ProductDetail";
 import Products from "./pages/Products";
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="products" element={<Products />} />
+        <Route path="products/:slug" element={<ProductDetail />} />
         <Route path="manufacturing" element={<Manufacturing />} />
         <Route path="network" element={<Network />} />
         <Route path="contact" element={<Contact />} />

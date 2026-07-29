@@ -26,7 +26,19 @@ export default function ProductCard({ product }) {
         />
       </div>
 
-      <h3 className="mt-4 text-2xl leading-tight">{product.name}</h3>
+      <h3 className="mt-4 text-2xl leading-tight">
+        <Link
+          to={`/products/${product.slug}`}
+          className="transition-colors hover:text-brand-600"
+        >
+          {product.name}
+        </Link>
+      </h3>
+      {product.code && (
+        <p className="mt-1 font-display text-sm font-semibold uppercase tracking-[0.14em] text-ink-400">
+          {product.code}
+        </p>
+      )}
       <p className="mt-2.5 text-[0.95rem] leading-relaxed text-ink-600">
         {product.summary}
       </p>
@@ -40,14 +52,22 @@ export default function ProductCard({ product }) {
         ))}
       </ul>
 
-      {/* Carries the product through to the enquiry form. */}
-      <Link
-        to={`/contact?product=${encodeURIComponent(product.name)}#enquiry`}
-        className="mt-6 inline-flex items-center gap-1.5 self-start font-display text-sm font-semibold uppercase tracking-wider text-ink-900 transition-colors hover:text-brand-600"
-      >
-        Enquire about this
-        <Icon name="arrowRight" className="h-4 w-4" />
-      </Link>
+      <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2">
+        <Link
+          to={`/products/${product.slug}`}
+          className="inline-flex items-center gap-1.5 font-display text-sm font-semibold uppercase tracking-wider text-ink-900 transition-colors hover:text-brand-600"
+        >
+          View details
+          <Icon name="arrowRight" className="h-4 w-4" />
+        </Link>
+        {/* Carries the product through to the enquiry form. */}
+        <Link
+          to={`/contact?product=${encodeURIComponent(product.name)}#enquiry`}
+          className="font-display text-sm font-semibold uppercase tracking-wider text-ink-500 transition-colors hover:text-brand-600"
+        >
+          Enquire
+        </Link>
+      </div>
     </article>
   );
 }

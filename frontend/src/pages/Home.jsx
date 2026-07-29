@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 import CTABand from "../components/CTABand";
+import Customers from "../components/Customers";
 import Icon from "../components/Icon";
 import ProductCard from "../components/ProductCard";
 import Reveal from "../components/Reveal";
@@ -145,6 +146,8 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
+
+      <Customers />
 
       {/* Offerings */}
       <section className="py-20">
