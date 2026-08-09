@@ -3,25 +3,32 @@ import SectionHeading from "./SectionHeading";
 import { customers } from "../data/company";
 
 /**
- * Customer wall. Renders a logo where one is supplied and sets the company name in
- * type where it is not, so the grid reads as a considered design either way.
+ * Every image in src/assets/customers/ is collected at build time and keyed by its
+ * filename without the extension. A customer whose `slug` matches gets its logo;
+ * one that does not simply shows its name. Nothing to import by hand, and a missing
+ * file can never break the build.
  */
-export default function Customers({ tone = "light" }) {
+const logoModules = import.meta.glob("../assets/customers/*.{png,jpg,jpeg,webp,svg}", {
+  eager: true,
+  import: "default",
+});
+
+const logos = Object.fromEntries(
+  Object.entries(logoModules).map(([path, src]) => [
+    path.split("/").pop().replace(/\.(png|jpe?g|webp|svg)$/i, ""),
+    src,
+  ]),
+);
+
+export default function Customers() {
   if (customers.length === 0) return null;
 
-  const isLight = tone === "light";
-
   return (
-    <section
-      className={`border-y py-20 ${
-        isLight ? "border-ink-100 bg-white" : "border-white/10 bg-ink-900"
-      }`}
-    >
+    <section className="border-y border-ink-100 bg-ink-50 py-20">
       <div className="container-page">
         <Reveal>
           <SectionHeading
             eyebrow="Customers"
-            tone={isLight ? "dark" : "light"}
             align="center"
             title="Companies we supply"
             description="Our materials and manufacturing go to some of the largest names in Indian cement, tiles, sanitaryware and paints."
@@ -29,38 +36,33 @@ export default function Customers({ tone = "light" }) {
         </Reveal>
 
         <Reveal className="mt-12">
-          <ul
-            className={`grid grid-cols-2 gap-px overflow-hidden rounded-sm sm:grid-cols-3 lg:grid-cols-4 ${
-              isLight ? "bg-ink-100" : "bg-white/10"
-            }`}
-          >
-            {customers.map((customer) => (
-              <li
-                key={customer.name}
-                className={`group flex min-h-28 items-center justify-center p-5 text-center transition-colors ${
-                  isLight ? "bg-white hover:bg-brand-50" : "bg-ink-900 hover:bg-white/5"
-                }`}
-              >
-                {customer.logo ? (
-                  <img
-                    src={customer.logo}
-                    alt={customer.name}
-                    className="max-h-12 w-auto max-w-full opacity-70 transition-opacity group-hover:opacity-100"
-                    loading="lazy"
-                  />
-                ) : (
-                  <span
-                    className={`font-display text-lg font-semibold uppercase leading-tight tracking-wide transition-colors sm:text-xl ${
-                      isLight
-                        ? "text-ink-600 group-hover:text-ink-900"
-                        : "text-ink-300 group-hover:text-white"
-                    }`}
-                  >
-                    {customer.name}
-                  </span>
-                )}
-              </li>
-            ))}
+          <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+            {customers.map((customer) => {
+              const logo = logos[customer.slug];
+
+              return (
+                <li key={customer.slug}>
+                  <div className="flex h-full flex-col items-center justify-center gap-4 rounded-sm border border-ink-100 bg-white p-5 text-center transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-200 hover:shadow-lg sm:p-6">
+                    {/* Taller than a wide logo needs, so square-panel marks like
+                        Somany, Nippon and Cera — which hit the height limit rather
+                        than the width limit — do not read smaller than the rest. */}
+                    {logo && (
+                      <div className="flex h-16 w-full items-center justify-center sm:h-20">
+                        <img
+                          src={logo}
+                          alt={`${customer.name} logo`}
+                          className="max-h-full max-w-[90%] object-contain"
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
+                    <span className="font-display text-sm font-semibold uppercase leading-snug tracking-wide text-ink-600 sm:text-[0.95rem]">
+                      {customer.name}
+                    </span>
+                  </div>
+                </li>
+              );
+            })}
           </ul>
         </Reveal>
       </div>

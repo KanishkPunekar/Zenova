@@ -241,20 +241,26 @@ export const contact = {
 /**
  * Customers we supply, as provided by the company.
  *
- * `logo` is optional. Leave it empty and the name is set in type, which keeps the
- * wall looking deliberate rather than unfinished. To use a logo instead, drop the
- * file into src/assets/customers/ and import it here — but only once you have
- * written permission from that company, since these are registered trademarks.
+ * Logos are picked up automatically from src/assets/customers/ — no import needed
+ * here. Name the file after the `slug` below, e.g. `ultratech.png`, and it appears.
+ * A customer with no matching file simply shows its name, so the grid never breaks
+ * and logos can be added one at a time.
+ *
+ * Run `python scripts/prepare-logos.py` to trim and normalise raw logo files before
+ * dropping them in. See src/assets/customers/README.md.
+ *
+ * These are registered trademarks — publish a logo only once that company has given
+ * written permission.
  */
 export const customers = [
-  { name: "UltraTech Cement Ltd", logo: "" },
-  { name: "Somany Ceramics Ltd", logo: "" },
-  { name: "Nuvoco Vistas Corp Ltd", logo: "" },
-  { name: "Hindware Limited", logo: "" },
-  { name: "JSW Green Cement Pvt Ltd", logo: "" },
-  { name: "Nippon Paint (India) Pvt Ltd", logo: "" },
-  { name: "Cera Sanitaryware Ltd", logo: "" },
-  { name: "Joint Seal", logo: "" },
+  { slug: "ultratech", name: "UltraTech Cement Ltd" },
+  { slug: "somany", name: "Somany Ceramics Ltd" },
+  { slug: "nuvoco", name: "Nuvoco Vistas Corp Ltd" },
+  { slug: "hindware", name: "Hindware Limited" },
+  { slug: "jsw", name: "JSW Green Cement Pvt Ltd" },
+  { slug: "nippon-paint", name: "Nippon Paint (India) Pvt Ltd" },
+  { slug: "cera", name: "Cera Sanitaryware Ltd" },
+  { slug: "joint-seal", name: "Joint Seal" },
 ];
 
 /**
@@ -348,8 +354,11 @@ export const social = {
  * print the CIN and GSTIN. Left blank until you supply the real numbers.
  */
 export const legal = {
-  cin: "",
-  gstin: "",
+  // From public MCA and GST records. VERIFY against the incorporation certificate
+  // and a GST invoice before the site goes live — these came from third-party
+  // aggregators mirroring the official registers, not from the registers directly.
+  cin: "U08106PN2023PTC222785",
+  gstin: "27AACCZ2468E1Z7",
 };
 
 /**

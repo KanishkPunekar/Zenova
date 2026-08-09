@@ -27,7 +27,12 @@
       "Bash(rm -f CLIENT-INFORMATION-REQUEST.md)",
       "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --hide-scrollbars --remote-debugging-port=9222 --user-data-dir=\"C:/Users/KANI/AppData/Local/Temp/claude/d--Zenova/04a4e06a-e90e-4d42-84da-b96f673f6a97/scratchpad/cp5\" \"about:blank\")",
       "Bash(node scrollshot.mjs \"http://localhost:5173/\" shots/cust 1440 1000 \"1550\")",
-      "Bash(MOBILE=1 node scrollshot.mjs \"http://localhost:5173/\" shots/cust-m 390 844 \"2450\")"
+      "Bash(MOBILE=1 node scrollshot.mjs \"http://localhost:5173/\" shots/cust-m 390 844 \"2450\")",
+      "Bash(python -c \"import PIL; from PIL import Image; print\\('Pillow', PIL.__version__\\)\")",
+      "Bash(python -m pip install --quiet Pillow)",
+      "Bash(python -c \"import PIL; print\\('Pillow', PIL.__version__\\)\")",
+      "Bash(mkdir -p \"C:/Users/KANI/AppData/Local/Temp/claude/d--Zenova/04a4e06a-e90e-4d42-84da-b96f673f6a97/scratchpad/shots\")",
+      "Bash(python scripts/prepare-logos.py)"
     ]
   }
 }

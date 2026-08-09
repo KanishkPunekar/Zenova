@@ -154,10 +154,17 @@ Nothing is hardcoded in the pages — change these two files and every page foll
 | Distances on the Network page | `marketReach` in `company.js` |
 | Addresses, phones, emails | `contact` in `company.js` |
 | Social links, CIN / GSTIN | `social`, `legal` in `company.js` |
+| Customer list | `customers` in `company.js` |
+| Customer logos | drop files in `frontend/src/assets/customers/` |
 | Navigation menu | `navLinks` in `company.js` |
 | Google Form id and embed height | `googleForm` in `company.js` |
 
 The WhatsApp floating button uses the first number in `contact.phones`.
+
+Customer logos are picked up automatically from `frontend/src/assets/customers/`
+by filename — there is no import to edit. To trim and normalise raw logo files
+first, put them in `logos-raw/` and run `python scripts/prepare-logos.py`.
+See [logos-raw/README.md](logos-raw/README.md).
 
 Brand colours, buttons and card styles live in `frontend/src/index.css` under
 `@theme`. The palette is sampled from the logo: `#F4871F` orange, `#231F20` ink.
