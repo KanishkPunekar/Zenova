@@ -43,26 +43,26 @@ export default function ProductDetail() {
   return (
     <>
       {/* Header */}
-      <section className="relative overflow-hidden bg-ink-900">
+      <section className="relative overflow-hidden border-b border-ink-100 bg-ink-50">
         <div className="hatch absolute inset-0" aria-hidden="true" />
         <div
-          className="absolute -right-24 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-brand-500/15 blur-3xl"
+          className="absolute -right-24 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-brand-500/20 blur-3xl"
           aria-hidden="true"
         />
         <div className="container-page relative py-14 sm:py-16">
           <nav
-            className="mb-6 flex flex-wrap items-center gap-2 text-sm text-ink-400"
+            className="mb-6 flex flex-wrap items-center gap-2 text-sm text-ink-500"
             aria-label="Breadcrumb"
           >
-            <Link to="/" className="transition-colors hover:text-brand-400">
+            <Link to="/" className="transition-colors hover:text-brand-600">
               Home
             </Link>
             <Icon name="arrowRight" className="h-3.5 w-3.5" />
-            <Link to="/products" className="transition-colors hover:text-brand-400">
+            <Link to="/products" className="transition-colors hover:text-brand-600">
               Products
             </Link>
             <Icon name="arrowRight" className="h-3.5 w-3.5" />
-            <span className="text-ink-200">{product.name}</span>
+            <span className="text-ink-800">{product.name}</span>
           </nav>
 
           <div className="flex flex-wrap items-center gap-3">
@@ -74,17 +74,17 @@ export default function ProductDetail() {
               {product.range} Range
             </span>
             {product.code && (
-              <span className="rounded-sm border border-white/20 px-2.5 py-1 font-display text-xs font-semibold uppercase tracking-[0.14em] text-white">
+              <span className="rounded-sm border border-ink-300 px-2.5 py-1 font-display text-xs font-semibold uppercase tracking-[0.14em] text-ink-800">
                 {product.code}
               </span>
             )}
-            <span className="text-sm text-ink-400">{categoryLabel}</span>
+            <span className="text-sm text-ink-500">{categoryLabel}</span>
           </div>
 
-          <h1 className="mt-4 max-w-4xl text-4xl leading-[1.02] text-white sm:text-5xl">
+          <h1 className="mt-4 max-w-4xl text-4xl leading-[1.02] text-ink-900 sm:text-5xl">
             {product.name}
           </h1>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ink-300">
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ink-600">
             {product.summary}
           </p>
 
@@ -94,7 +94,7 @@ export default function ProductDetail() {
             </Link>
             <a
               href={`tel:${contact.phones[0].replace(/\s/g, "")}`}
-              className="btn-ghost-light"
+              className="btn-outline"
             >
               <Icon name="phone" className="h-4 w-4" />
               {contact.phones[0]}
@@ -281,21 +281,21 @@ export default function ProductDetail() {
           <aside className="lg:col-span-4">
             <div className="sticky top-28 space-y-6">
               <Reveal>
-                <div className="rounded-sm bg-ink-900 p-7">
-                  <h2 className="text-2xl text-white">Enquire about this product</h2>
-                  <p className="mt-3 text-sm leading-relaxed text-ink-300">
+                <div className="rounded-sm border border-ink-200 bg-white p-7 shadow-lift">
+                  <h2 className="text-2xl text-ink-900">Enquire about this product</h2>
+                  <p className="mt-3 text-sm leading-relaxed text-ink-600">
                     Send us the quantity, your site location and the timeline. We will
                     come back with pricing, the data sheet and a delivery schedule.
                   </p>
                   <Link to={enquiryLink} className="btn-primary mt-6 w-full">
                     Request a Quote
                   </Link>
-                  <div className="mt-6 space-y-2.5 border-t border-white/10 pt-5 text-sm">
+                  <div className="mt-6 space-y-2.5 border-t border-ink-100 pt-5 text-sm">
                     {contact.phones.slice(0, 2).map((phone) => (
                       <a
                         key={phone}
                         href={`tel:${phone.replace(/\s/g, "")}`}
-                        className="flex items-center gap-2.5 text-ink-300 transition-colors hover:text-brand-400"
+                        className="flex items-center gap-2.5 text-ink-700 transition-colors hover:text-brand-600"
                       >
                         <Icon name="phone" className="h-4 w-4 text-brand-500" />
                         {phone}
@@ -303,7 +303,7 @@ export default function ProductDetail() {
                     ))}
                     <a
                       href={`mailto:${contact.emails[0].address}`}
-                      className="flex items-center gap-2.5 break-all text-ink-300 transition-colors hover:text-brand-400"
+                      className="flex items-center gap-2.5 break-all text-ink-700 transition-colors hover:text-brand-600"
                     >
                       <Icon name="mail" className="h-4 w-4 shrink-0 text-brand-500" />
                       {contact.emails[0].address}

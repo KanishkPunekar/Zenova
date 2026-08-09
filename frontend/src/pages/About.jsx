@@ -74,11 +74,11 @@ export default function About() {
           </Reveal>
 
           <Reveal className="mt-12">
-            <div className="relative overflow-hidden rounded-sm bg-ink-900 p-9 sm:p-12">
+            <div className="relative overflow-hidden rounded-sm border border-brand-200 bg-brand-50 p-9 sm:p-12">
               <div className="hatch absolute inset-0" aria-hidden="true" />
               <div className="relative">
                 <Icon name="target" className="h-9 w-9 text-brand-500" />
-                <p className="mt-6 max-w-4xl font-display text-3xl leading-tight text-white sm:text-4xl">
+                <p className="mt-6 max-w-4xl font-display text-3xl leading-tight text-ink-900 sm:text-4xl">
                   {company.mission}
                 </p>
               </div>

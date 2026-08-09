@@ -127,12 +127,11 @@ export default function Manufacturing() {
       </section>
 
       {/* Process */}
-      <section className="border-y border-ink-100 bg-ink-900 py-20">
+      <section className="border-y border-ink-100 bg-ink-50 py-20">
         <div className="container-page">
           <Reveal>
             <SectionHeading
               eyebrow="Process"
-              tone="light"
               title="Raw sand to sealed bag"
               description="Backward integration is the point: the fewer inputs we buy finished, the more of the quality we can guarantee."
             />
@@ -141,13 +140,13 @@ export default function Manufacturing() {
           <ol className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {processSteps.map((step, index) => (
               <Reveal key={step.title} delay={index * 70}>
-                <li className="relative border-t border-white/15 pt-6">
+                <li className="relative border-t border-ink-200 pt-6">
                   <span className="font-display text-sm font-semibold tracking-[0.2em] text-brand-500">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <Icon name={step.icon} className="mt-4 h-8 w-8 text-white" />
-                  <h3 className="mt-4 text-xl leading-tight text-white">{step.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-300">{step.body}</p>
+                  <Icon name={step.icon} className="mt-4 h-8 w-8 text-brand-600" />
+                  <h3 className="mt-4 text-xl leading-tight text-ink-900">{step.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-ink-600">{step.body}</p>
                 </li>
               </Reveal>
             ))}

@@ -31,25 +31,25 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-ink-900">
+      <section className="relative overflow-hidden border-b border-ink-100 bg-ink-50">
         <div className="hatch absolute inset-0" aria-hidden="true" />
         <div
-          className="absolute -left-32 -top-32 h-96 w-96 rounded-full bg-brand-500/20 blur-3xl"
+          className="absolute -left-32 -top-32 h-96 w-96 rounded-full bg-brand-500/25 blur-3xl"
           aria-hidden="true"
         />
         <div
-          className="absolute -bottom-40 right-0 h-[26rem] w-[26rem] rounded-full bg-brand-600/10 blur-3xl"
+          className="absolute -bottom-40 right-0 h-[26rem] w-[26rem] rounded-full bg-brand-400/15 blur-3xl"
           aria-hidden="true"
         />
 
         <div className="container-page relative grid items-center gap-14 py-20 lg:grid-cols-12 lg:py-28">
           <div className="lg:col-span-7">
-            <p className="eyebrow text-brand-400">{company.tagline}</p>
-            <h1 className="mt-4 text-5xl leading-[0.95] text-white sm:text-6xl lg:text-7xl">
+            <p className="eyebrow text-brand-600">{company.tagline}</p>
+            <h1 className="mt-4 text-5xl leading-[0.95] text-ink-900 sm:text-6xl lg:text-7xl">
               Building materials
               <span className="block text-brand-500">made to perform</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-300">
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-600">
               {company.shortName} manufactures tile adhesives, mortars, plasters,
               putty and construction chemicals at Karad, Maharashtra — backed by
               our own silica sand processing and transport fleet.
@@ -59,13 +59,13 @@ export default function Home() {
               <Link to="/contact#enquiry" className="btn-primary">
                 Request a Quote
               </Link>
-              <Link to="/products" className="btn-ghost-light">
+              <Link to="/products" className="btn-outline">
                 Explore Products
                 <Icon name="arrowRight" className="h-4 w-4" />
               </Link>
             </div>
 
-            <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-ink-400">
+            <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-ink-600">
               <span className="flex items-center gap-2">
                 <Icon name="factory" className="h-5 w-5 text-brand-500" />
                 2 plants · Karad & Hubballi
@@ -83,8 +83,8 @@ export default function Home() {
 
           {/* Capability panel */}
           <div className="lg:col-span-5">
-            <div className="rounded-sm border border-white/10 bg-white/5 p-7 backdrop-blur">
-              <h2 className="text-2xl text-white">Production at a glance</h2>
+            <div className="rounded-sm border border-ink-200 bg-white p-7 shadow-lift">
+              <h2 className="text-2xl text-ink-900">Production at a glance</h2>
               <dl className="mt-6 space-y-5">
                 {[
                   { label: "Karad plant capacity", value: "1,00,000 MT / annum" },
@@ -95,10 +95,10 @@ export default function Home() {
                 ].map((row) => (
                   <div
                     key={row.label}
-                    className="flex items-baseline justify-between gap-4 border-b border-white/10 pb-4 last:border-0 last:pb-0"
+                    className="flex items-baseline justify-between gap-4 border-b border-ink-100 pb-4 last:border-0 last:pb-0"
                   >
-                    <dt className="text-sm text-ink-400">{row.label}</dt>
-                    <dd className="shrink-0 font-display text-lg font-semibold text-white">
+                    <dt className="text-sm text-ink-600">{row.label}</dt>
+                    <dd className="shrink-0 font-display text-lg font-semibold text-ink-900">
                       {row.value}
                     </dd>
                   </div>
@@ -106,7 +106,7 @@ export default function Home() {
               </dl>
               <Link
                 to="/manufacturing"
-                className="mt-7 inline-flex items-center gap-1.5 font-display text-sm font-semibold uppercase tracking-wider text-brand-400 transition-colors hover:text-brand-300"
+                className="mt-7 inline-flex items-center gap-1.5 font-display text-sm font-semibold uppercase tracking-wider text-brand-600 transition-colors hover:text-brand-700"
               >
                 See our facilities
                 <Icon name="arrowRight" className="h-4 w-4" />
@@ -240,12 +240,12 @@ export default function Home() {
           </Reveal>
 
           <Reveal delay={80} className="lg:col-span-5">
-            <div className="rounded-sm bg-ink-900 p-8">
-              <p className="eyebrow text-brand-400">Supporting business</p>
-              <h3 className="mt-2 text-3xl text-white">
+            <div className="rounded-sm border border-ink-200 bg-white p-8 shadow-lift">
+              <p className="eyebrow text-brand-600">Supporting business</p>
+              <h3 className="mt-2 text-3xl text-ink-900">
                 The trading roots we still run on
               </h3>
-              <p className="mt-3 text-ink-300">
+              <p className="mt-3 text-ink-600">
                 Alongside manufacturing, we continue to supply the raw materials and
                 logistics the industry depends on.
               </p>
@@ -253,7 +253,7 @@ export default function Home() {
                 {supportingBusiness.map((item) => (
                   <li
                     key={item.title}
-                    className="flex items-center gap-3 rounded-sm border border-white/10 bg-white/5 px-4 py-3.5 text-sm text-white"
+                    className="flex items-center gap-3 rounded-sm border border-ink-100 bg-ink-50 px-4 py-3.5 text-sm text-ink-800"
                   >
                     <Icon name={item.icon} className="h-5 w-5 shrink-0 text-brand-500" />
                     {item.title}

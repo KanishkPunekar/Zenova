@@ -16,8 +16,8 @@ export function Logo({ className = "h-9" }) {
 }
 
 /**
- * Logo for dark backgrounds: the orange mark sits on its own light tile and the
- * wordmark is set in type, so nothing looks pasted onto the dark panel.
+ * Stacked lockup used in the footer: the orange mark beside a typeset wordmark.
+ * Set in ink rather than white, since every surface is now light.
  */
 export function LogoDark({ className = "" }) {
   return (
@@ -25,11 +25,11 @@ export function LogoDark({ className = "" }) {
       <img
         src="/zenova-mark.png"
         alt=""
-        className="h-11 w-11 rounded-sm bg-ink-50 p-1"
+        className="h-11 w-11 rounded-sm bg-white p-1 ring-1 ring-ink-100"
         width="69"
         height="69"
       />
-      <span className="font-display text-2xl font-bold uppercase leading-none tracking-wide text-white">
+      <span className="font-display text-2xl font-bold uppercase leading-none tracking-wide text-ink-900">
         Zenova
         <span className="ml-1.5 text-brand-500">KSK</span>
       </span>

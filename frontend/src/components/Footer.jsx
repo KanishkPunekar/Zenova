@@ -18,8 +18,19 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-ink-950 text-ink-300">
-      <div className="hatch border-b border-white/10">
+    <footer className="relative overflow-hidden border-t border-ink-100 bg-ink-50 text-ink-600">
+      {/* Same warm treatment as the hero, flipped, so the page is bookended. */}
+      <div className="hatch absolute inset-0" aria-hidden="true" />
+      <div
+        className="absolute -bottom-40 -left-32 h-96 w-96 rounded-full bg-brand-500/25 blur-3xl"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute -right-24 -top-40 h-[26rem] w-[26rem] rounded-full bg-brand-400/15 blur-3xl"
+        aria-hidden="true"
+      />
+
+      <div className="relative border-b border-ink-200">
         <div className="container-page grid gap-12 py-14 md:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <LogoDark />
@@ -45,7 +56,7 @@ export default function Footer() {
                         rel="noreferrer noopener"
                         aria-label={item.label}
                         title={item.label}
-                        className="flex h-10 w-10 items-center justify-center rounded-sm border border-white/15 text-ink-300 transition-colors hover:border-brand-500 hover:text-brand-400"
+                        className="flex h-10 w-10 items-center justify-center rounded-sm border border-ink-200 text-ink-500 transition-colors hover:border-brand-500 hover:text-brand-600"
                       >
                         <svg
                           viewBox="0 0 24 24"
@@ -63,11 +74,11 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            <h3 className="text-base tracking-[0.18em] text-white">Company</h3>
+            <h3 className="text-base tracking-[0.18em] text-ink-900">Company</h3>
             <ul className="mt-4 space-y-2.5 text-sm">
               {navLinks.map((link) => (
                 <li key={link.to}>
-                  <Link to={link.to} className="transition-colors hover:text-brand-400">
+                  <Link to={link.to} className="transition-colors hover:text-brand-600">
                     {link.label}
                   </Link>
                 </li>
@@ -76,13 +87,13 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <h3 className="text-base tracking-[0.18em] text-white">Products</h3>
+            <h3 className="text-base tracking-[0.18em] text-ink-900">Products</h3>
             <ul className="mt-4 space-y-2.5 text-sm">
               {footerProducts.map((product) => (
                 <li key={product.slug}>
                   <Link
                     to={`/products/${product.slug}`}
-                    className="transition-colors hover:text-brand-400"
+                    className="transition-colors hover:text-brand-600"
                   >
                     {product.name}
                   </Link>
@@ -91,7 +102,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/products"
-                  className="inline-flex items-center gap-1.5 text-brand-400 transition-colors hover:text-brand-300"
+                  className="inline-flex items-center gap-1.5 text-brand-600 transition-colors hover:text-brand-700"
                 >
                   View all {products.length} products
                   <Icon name="arrowRight" className="h-4 w-4" />
@@ -101,12 +112,12 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <h3 className="text-base tracking-[0.18em] text-white">Reach Us</h3>
+            <h3 className="text-base tracking-[0.18em] text-ink-900">Reach Us</h3>
             <ul className="mt-4 space-y-4 text-sm">
               <li className="flex gap-3">
                 <Icon name="pin" className="mt-0.5 h-4.5 w-4.5 shrink-0 text-brand-500" />
                 <span>
-                  <span className="block text-white">{contact.factory.label}</span>
+                  <span className="block font-medium text-ink-900">{contact.factory.label}</span>
                   {contact.factory.lines.join(", ")}
                 </span>
               </li>
@@ -117,7 +128,7 @@ export default function Footer() {
                     <a
                       key={phone}
                       href={`tel:${phone.replace(/\s/g, "")}`}
-                      className="block transition-colors hover:text-brand-400"
+                      className="block transition-colors hover:text-brand-600"
                     >
                       {phone}
                     </a>
@@ -128,7 +139,7 @@ export default function Footer() {
                 <Icon name="mail" className="mt-0.5 h-4.5 w-4.5 shrink-0 text-brand-500" />
                 <a
                   href={`mailto:${contact.emails[0].address}`}
-                  className="break-all transition-colors hover:text-brand-400"
+                  className="break-all transition-colors hover:text-brand-600"
                 >
                   {contact.emails[0].address}
                 </a>
@@ -138,7 +149,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="container-page flex flex-col gap-3 py-6 text-sm sm:flex-row sm:items-start sm:justify-between">
+      <div className="container-page relative flex flex-col gap-3 py-6 text-sm sm:flex-row sm:items-start sm:justify-between">
         <div>
           <p>
             © {year} {company.legalName}. All rights reserved.

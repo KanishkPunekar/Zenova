@@ -40,7 +40,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50">
       {/* Utility strip: the fastest ways to reach the company. */}
-      <div className="hidden bg-ink-900 text-ink-200 lg:block">
+      <div className="hidden border-b border-ink-100 bg-ink-50 text-ink-600 lg:block">
         <div className="container-page flex h-10 items-center justify-between text-sm">
           <p className="flex items-center gap-2">
             <Icon name="pin" className="h-4 w-4 text-brand-500" />
@@ -48,14 +48,14 @@ export default function Navbar() {
           </p>
           <div className="flex items-center gap-6">
             <a
-              className="flex items-center gap-2 transition-colors hover:text-white"
+              className="flex items-center gap-2 transition-colors hover:text-ink-900"
               href={`tel:${contact.phones[0].replace(/\s/g, "")}`}
             >
               <Icon name="phone" className="h-4 w-4 text-brand-500" />
               {contact.phones[0]}
             </a>
             <a
-              className="flex items-center gap-2 transition-colors hover:text-white"
+              className="flex items-center gap-2 transition-colors hover:text-ink-900"
               href={`mailto:${contact.emails[0].address}`}
             >
               <Icon name="mail" className="h-4 w-4 text-brand-500" />
