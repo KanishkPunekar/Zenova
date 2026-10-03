@@ -230,10 +230,11 @@ export const contact = {
     ],
     mapsQuery: "Karad Industrial Area, Talbid, Karad 415109",
   },
+  // The first address is the one used across the site — header, footer, product pages.
   emails: [
-    { address: "sales@zenovakskindia.com", label: "Sales" },
-    { address: "director@zenovakskindia.com", label: "Director" },
-    { address: "zenovabuildingsoltions@gmail.com", label: "General" },
+    { address: "zenovaksk.india@gmail.com", label: "Sales" },
+    { address: "zenovabuildingsolutions@gmail.com", label: "General" },
+    { address: "purchasezenovaksk.india@gmail.com", label: "Purchase" },
   ],
   phones: ["+91 95613 06251", "+91 90753 36508", "+91 98509 79398"],
 };

@@ -196,9 +196,6 @@ and no server costs. Enquiries live in Google Forms.
 - Product application notes are indicative and deliberately avoid quoting standards
   or certifications. Replace them with figures from the actual technical data sheets
   before publishing.
-- The general email address in the profile PDF reads
-  `zenovabuildingsoltions@gmail.com` (with "soltions"). It is reproduced as given —
-  correct it in `contact.emails` in `company.js` if that was a typo.
 - The logo artwork sits on a near-white plate, so the header applies
   `mix-blend-multiply` to blend it in. A transparent PNG or SVG would be better if
   you have one.

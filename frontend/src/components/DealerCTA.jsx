@@ -51,13 +51,13 @@ export default function DealerCTA() {
                   Apply to be a dealer
                 </Link>
                 <a
-                  href={`mailto:${contact.emails[1].address}?subject=${encodeURIComponent(
+                  href={`mailto:${contact.emails[0].address}?subject=${encodeURIComponent(
                     "Dealership enquiry",
                   )}`}
                   className="btn-outline mt-3 w-full bg-white"
                 >
                   <Icon name="mail" className="h-4 w-4" />
-                  Email the director
+                  Email us
                 </a>
               </div>
             </div>
