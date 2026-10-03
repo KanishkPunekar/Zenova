@@ -76,8 +76,8 @@
   .btn-dark,
   .btn-outline,
   .btn-ghost-light {
-    @apply inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3
-      font-display text-base font-semibold uppercase tracking-wider
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-sm
+      px-6 py-3 font-display text-base font-semibold uppercase tracking-wider
       transition duration-200 focus-visible:outline-2
       focus-visible:outline-offset-2 focus-visible:outline-brand-500
       disabled:cursor-not-allowed disabled:opacity-60;

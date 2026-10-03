@@ -367,11 +367,12 @@ export const legal = {
  * three-minute setup — there is a script there that builds the form for you.
  *
  * formId          The long id from your form's URL. This is the only required
- *                 value; leave it empty and the Contact page shows phone and
- *                 email instead of a broken embed.
+ *                 value. When set, "Email us" on the Contact page opens the form
+ *                 there; leave it empty and that button opens the visitor's mail
+ *                 app instead.
  * productEntryId  Optional. The entry id of the "Product of interest" question,
- *                 e.g. "entry.123456789". When set, the "Enquire about this"
- *                 button on each product card opens the form with that product
+ *                 e.g. "entry.123456789". When set, visitors who come from a
+ *                 product's "Enquire" button get the form with that product
  *                 already selected.
  * embedHeight     Height of the embedded form in pixels. Raise it if the form
  *                 scrolls inside its own frame.

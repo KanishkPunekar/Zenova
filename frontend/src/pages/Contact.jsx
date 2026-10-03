@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import Icon from "../components/Icon";
@@ -10,11 +10,20 @@ import { productNames } from "../data/products";
 
 export default function Contact() {
   const [searchParams] = useSearchParams();
+  const [formOpen, setFormOpen] = useState(false);
+  const formRef = useRef(null);
+
   const requested = searchParams.get("product") ?? "";
   const product = productNames.includes(requested) ? requested : "";
 
   const embedUrl = googleFormUrl({ embedded: true, product });
   const openUrl = googleFormUrl({ product });
+
+  function openForm() {
+    setFormOpen(true);
+    // Let the form render before scrolling to it.
+    requestAnimationFrame(() => formRef.current?.scrollIntoView({ block: "start" }));
+  }
 
   return (
     <>
@@ -105,7 +114,7 @@ export default function Contact() {
               <p className="eyebrow">Enquiry form</p>
               <h2 className="mt-2 text-3xl leading-tight sm:text-4xl">Request a quote</h2>
               <p className="mt-3 text-ink-600">
-                Fill in the form below and our team will get back to you, usually
+                Tell us what you need and our team will get back to you, usually
                 within one working day.
               </p>
 
@@ -116,14 +125,15 @@ export default function Contact() {
                 </p>
               )}
 
-              {embedUrl ? (
+              <CallOrEmail onEmail={embedUrl ? openForm : null} formOpen={formOpen} />
+
+              {formOpen && (
                 <GoogleFormEmbed
+                  ref={formRef}
                   embedUrl={embedUrl}
                   openUrl={openUrl}
                   height={googleForm.embedHeight}
                 />
-              ) : (
-                <FormNotConnected />
               )}
             </div>
           </Reveal>
@@ -134,11 +144,11 @@ export default function Contact() {
 }
 
 /** The Google Form in an iframe, with a loading state and an escape hatch. */
-function GoogleFormEmbed({ embedUrl, openUrl, height }) {
+function GoogleFormEmbed({ ref, embedUrl, openUrl, height }) {
   const [loaded, setLoaded] = useState(false);
 
   return (
-    <div className="mt-7">
+    <div ref={ref} className="mt-7 scroll-mt-24 lg:scroll-mt-34">
       <div className="relative overflow-hidden rounded-sm border border-ink-200 bg-white">
         {!loaded && (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-white">
@@ -175,18 +185,19 @@ function GoogleFormEmbed({ embedUrl, openUrl, height }) {
 }
 
 /**
- * Shown until a Google Form id is configured, so the page is never a dead end.
+ * Call or email. With a Google Form connected, "Email us" opens it on the page —
+ * that works for every visitor, where a mailto link needs a mail app. Without
+ * one it falls back to mailto, so the page is never a dead end.
  * See GOOGLE-FORM-SETUP.md.
  */
-function FormNotConnected() {
+function CallOrEmail({ onEmail, formOpen }) {
   return (
     <div className="mt-7 rounded-sm border border-dashed border-ink-300 bg-white p-6 sm:p-8">
       <Icon name="mail" className="h-8 w-8 text-brand-500" />
       <h3 className="mt-4 text-2xl leading-tight">Send us your requirement</h3>
       <p className="mt-2 leading-relaxed text-ink-600">
-        The online form is being set up. In the meantime, the fastest way to reach
-        us is a call or an email — please include the product, quantity and your
-        site location.
+        The fastest way to reach us is a call or an email — please include the
+        product, quantity and your site location.
       </p>
 
       <div className="mt-7 flex flex-wrap gap-3">
@@ -194,14 +205,26 @@ function FormNotConnected() {
           <Icon name="phone" className="h-4 w-4" />
           {contact.phones[0]}
         </a>
-        <a href={`mailto:${contact.emails[0].address}`} className="btn-outline bg-white">
-          <Icon name="mail" className="h-4 w-4" />
-          Email sales
-        </a>
+        {onEmail ? (
+          <button
+            type="button"
+            onClick={onEmail}
+            aria-expanded={formOpen}
+            className="btn-outline bg-white"
+          >
+            <Icon name="mail" className="h-4 w-4" />
+            Email us
+          </button>
+        ) : (
+          <a href={`mailto:${contact.emails[0].address}`} className="btn-outline bg-white">
+            <Icon name="mail" className="h-4 w-4" />
+            Email us
+          </a>
+        )}
       </div>
 
       {/* Reminder for whoever is building the site — never shipped to visitors. */}
-      {import.meta.env.DEV && (
+      {import.meta.env.DEV && !onEmail && (
         <p className="mt-6 border-t border-ink-100 pt-4 text-sm text-ink-500">
           Setting this up? Add your Google Form id to{" "}
           <code className="rounded bg-ink-100 px-1.5 py-0.5 text-ink-700">

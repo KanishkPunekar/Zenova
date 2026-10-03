@@ -1,8 +1,8 @@
 # Connecting the enquiry form
 
-The Contact page embeds a Google Form. Until you connect one, the page shows your
-phone number and email instead — nothing looks broken, so you can deploy the site
-before the form exists.
+The **Email us** button on the Contact page opens a Google Form right on the page.
+Until you connect one, the button opens the visitor's mail app instead — nothing
+looks broken, so you can deploy the site before the form exists.
 
 Total time: about three minutes.
 
@@ -69,7 +69,8 @@ export const googleForm = {
 };
 ```
 
-Save. The dev server hot-reloads and the form appears on the Contact page.
+Save. The dev server hot-reloads, and **Email us** on the Contact page now opens
+the form.
 
 If the form scrolls inside its own frame, raise `embedHeight` until it fits.
 
@@ -77,8 +78,8 @@ If the form scrolls inside its own frame, raise `embedHeight` until it fits.
 
 ## 4. Optional: pre-select the product
 
-Each product card has an **Enquire about this** button. With one more value, that
-button opens the form with the product already chosen.
+Each product card has an **Enquire** button. With one more value, visitors who come
+from it get the form with that product already chosen.
 
 1. Open your form → **⋮** menu (top right) → **Get pre-filled link**.
 2. Pick any product in the *Product of interest* dropdown → **Get link** → **Copy link**.
